@@ -1,0 +1,1 @@
+The Odin project assignment to build a calculator using JS/HTML/CSS
