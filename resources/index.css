@@ -3,6 +3,11 @@
     margin:0;
 }
 
+body{
+
+    background-color: rgba(134, 150, 224, 0.459);
+}
+
 #calculator{
     width:400px;
     height:600px;
@@ -35,6 +40,8 @@
     height: 80%;
     background-color: silver;
     flex-wrap: wrap;
+    background-color:lightblue;
+    
 }
 
 #mainSide{
@@ -56,6 +63,7 @@
 .bigButton{
 
     grid-column-start: span 2;
+    
 }
 
 #content{
@@ -63,4 +71,28 @@
     font-family: 'Courier New', Courier, monospace ;
     font-size: 1.5vw;
     
+}
+
+.numB{
+
+    background-color: lightsteelblue;
+}
+
+#clear{
+    background-color: lightsteelblue;
+}
+
+#dot{
+    background-color: lightsteelblue;
+
+}
+
+.operator{
+    background-color: lightsteelblue;
+
+}
+
+.bigButton{
+    background-color: lightsteelblue;
+
 }
