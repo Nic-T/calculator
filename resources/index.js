@@ -4,17 +4,18 @@ let equal = document.getElementById("equal")
 let screen= document.getElementById("content")
 let clear =document.getElementById("clear")
 let dot=document.getElementById("dot")
+let back=document.getElementById("back")
 
 let numbers = new Array();
 let op= new Array();
-let lastElement
+let lastElement;
 let strNr;
 let operator =0;
 let number = 0;
 let nextOperator;
 let operatorNr=0;
 let count = 0;
-numbers.push(0)
+numbers.push("")
 
 clear.addEventListener("click",()=>{
 
@@ -29,38 +30,57 @@ clear.addEventListener("click",()=>{
     count=0;
     number=0;
     screen.innerHTML= number;
-    numbers.push(0)
+    numbers.push("")
 })
 
 numButtons.forEach(number =>{
     number.addEventListener('click',()=>{
         
-        numbers[count]=numbers[count]*10+parseInt(number.innerHTML);
+        numbers[count]=numbers[count]+`${number.innerHTML}`
         screen.innerHTML=numbers[count]
+        lastElement=numbers[count];
     })
 })
 
 dot.addEventListener('click',()=>{
 
-    strNr= numbers[count].toString()
-    strNr +="."
-    numbers[count]= parseInt(strNr)
+    numbers[count] +="."
 
 })
 
 operators.forEach(operator =>{
 
     operator.addEventListener('click',()=>{
-        numbers.push(0)
+        numbers[count]=Number(numbers[count])
+        numbers.push("")
         op.push(operator.innerHTML)
+        lastElement=op[count];
         count++;
         
     })
 
 })
 
+back.addEventListener("click",()=>{
+
+    if(lastElement=numbers[count]){
+        console.log(op,numbers)
+        numbers.pop()
+        numbers.push("")
+
+    }
+
+    if(lastElement=op[count]){
+        console.log(op,numbers)
+        op.pop()
+        
+    }
+
+
+})
+
 equal.addEventListener('click',()=>{
-    
+    numbers[count]=Number(numbers[count])
     while(op.length != 0){
 
         for(i=0;i<=count;i++){
@@ -108,7 +128,7 @@ equal.addEventListener('click',()=>{
     screen.innerHTML= number;
     
     numbers.pop()
-    numbers.push(0)
+    numbers.push("")
     count=0;
     
     
